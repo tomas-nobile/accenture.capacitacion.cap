@@ -86,11 +86,11 @@ function validarEdad() {
 }
 
 function validarTelefono() {
-  /* let phone = document.querySelector("#phone").value;
+  let phone = document.querySelector("#phone").value;
 
-  if (phone.length == 10) {
+  if (phone.length != 10) {
     let alerta= alert("Telefono invalido")
-  } */
+  } 
 }
 
 function validarEmail() {
