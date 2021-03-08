@@ -144,7 +144,7 @@ console.log(JSON.stringify(find));
     document.querySelector("#menu").hidden = false;
     document.querySelector("#inicio").hidden = true;
   } else {
-    console.log("Usuario no encontrado: Verifique los datos");
+    let alerta= alert("Usuario no encontrado: Verifique los datos");
   }
 
   /* Menu: Funcionamiento de botones */
