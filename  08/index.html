@@ -1,31 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <title>Document</title>
-</head>
-<body>
-    <form>
+  </head>
+  <body>
+    <div id="inicio">
+      <form>
         <label for="name"></label>
-        <input type="text" id="name" name="name" placeholder="Nombre">
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Nombre"
+          onblur="validarNombre()"
+        />
         <label for="dni"></label>
-        <input type="number" id="dni" name="dni" placeholder="DNI">
+        <input
+          type="text"
+          id="dni"
+          name="dni"
+          placeholder="DNI"
+          onblur="validarDni()"
+        />
         <label for="bday"></label>
-        <input type="date" id="bday" name="bday" placeholder="Fecha de nacimiento">
+        <input
+          type="date"
+          id="bday"
+          name="bday"
+          placeholder="Fecha de nacimiento"
+          onblur="validarEdad()"
+        />
         <label for="phone"></label>
-        <input type="number" id="phone" name="phone" placeholder="Numero de telefóno">
+        <input
+          type="text"
+          id="phone"
+          name="phone"
+          placeholder="Número de teléfono"
+          onblur="validarTelefono()"
+        />
         <label for="email"></label>
-        <input type="email" id="email" name="email" placeholder="Email">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          onblur="validarEmail()"
+        />
         <label for="id"></label>
-        <input type="text" id="id" name="id" placeholder="Legajo">
+        <input
+          type="text"
+          id="id"
+          name="id"
+          placeholder="Legajo"
+          onblur="validarLegajo()"
+        />
         <label for="subject"></label>
-        <input type="text" id="subject" name="subject" placeholder="Materia">
+        <input
+          type="text"
+          id="course"
+          name="course"
+          placeholder="Curso"
+        />
 
-        <button type="submit">Enviar</button>
-    </form>
+        <button type="button" onclick="validarExist()">Enviar</button>
+      </form>
+    </div>
+    <div id="menu" hidden>
+      <button type="button" id="search-btn">Buscar alumno</button>
+      <button type="button" id="list-btn">Listar alumnos</button>
+      <button type="button" id="passed-btn">
+        Aprobados/desaprobados
+      </button>
+      <button type="button" id="exit-btn">Salir del programa</button>
+    </div>
+    <div id="search" hidden>
+      <label for="select">¿Por que dato desea buscar?</label>
+      <select id="select-search">
+        <option disabled selected></option>
+        <option value="dni">DNI</option>
+        <option value="name">Nombre</option>
+        <option value="phone">Teléfono</option>
+        <option value="email">Email</option>
+      </select>
 
+      <input type="text" name="input-search" id="input-search" />
+      <button type="button" onclick="search()">Buscar</button>
+      <button type="button" id="back-btn">Volver</button>
+    </div>
+    <div id="list" hidden>
+      <button type="button" onclick="list()">Listar</button>
+      <button type="button" id="back-btn">Volver</button>
+    </div>
+    <div id="passed" hidden >
+        <button type="button" onclick="passed()">Ver probados y desaprobados</button>
+        <button type="button" id="back-btn">Volver</button>  
+    </div>
 
-</body>
-<script src="index.js"></script>
+  </body>
+  <script src="index.js"></script>
 </html>
