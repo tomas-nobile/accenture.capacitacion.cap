@@ -1,0 +1,2 @@
+ID;nombre;genero;fechaNacimiento;nacionalidad;cantLibros;ventaDirecta;editorial_ID
+e3d0df1c-5325-4ea3-b13f-9ab201bb5008; Stephen King; Terror; 1999-120:00:00.000Z;Argentina;1;true;938de7ef-35c7-4f5f-808d-f027ce21befd-18T0

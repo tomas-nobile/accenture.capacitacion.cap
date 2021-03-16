@@ -1,0 +1,32 @@
+SCHEMA
+
+namespace myLibreria;
+using {cuid} from '@sap/cds/common';
+
+entity Books{
+  key ID: Integer;
+  name  : String(30);
+  author  : Association to Author
+
+}
+
+entity Author{
+  key ID: Integer;
+  name:  String(30);
+  country:String(30);
+  books: Association to many Books on books.author = $self;
+}
+
+
+SERVICE
+
+using { myLibreria as my } from '../db/schema';
+service api {
+
+  entity Books as SELECT from my.Books {*,
+  author.name as Author
+  };
+  entity Author as SELECT from my.Author {*,
+  
+  };
+}

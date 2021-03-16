@@ -1,0 +1,9 @@
+Saas: Software como servicio
+
+Entidad: Algo abstracto para reflejarlo a una bd, 
+
+Para obtener persona ('')
+
+$value devuelve solo valor
+
+landa o search 
