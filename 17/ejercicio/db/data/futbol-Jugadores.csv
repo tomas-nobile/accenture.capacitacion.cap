@@ -1,0 +1,7 @@
+ID; nombre; valor; apodo; posicion; nacionalidad; numero; equipo_ID
+d75e460b-ed54-47f8-8254-4d2b9e338911; Ronaldo; 600000; el bicho; EI; Portugal; 7; 92f6a42c-48cc-45db-9ad1-009f61e7e179
+4515da3d-2cd6-44de-b238-02443493230f; Szczesny; 100000; el arquero; POR; Polonia; 1; 92f6a42c-48cc-45db-9ad1-009f61e7e179
+2fc2438c-7424-4aee-983f-8f7cd23c9936; Messi; 7000000; la pulga; MO; Argentina; 10;84aae833-9bbf-4537-a2ae-16ee5fa78f37
+645dd5d9-7114-41a4-a046-0c576c03ff2b; Havertz; 4000000; Havertz; MO; Alemania;10; 326f4f9e-740b-4872-ba4f-5af54d6e5ce8
+9fbc9383-2f0c-4312-a8c5-2623fda3898d;Neuer; 2000000; Neuer; POR; Alemania; 1 ; b214cb59-0123-4836-ac22-f9b613e1234e
+3bea25a9-f29e-4e93-9cb1-9a0891932223;Goretzka; 3000000; Goretzka; MC; Alemania; 6; b214cb59-0123-4836-ac22-f9b613e1234e
