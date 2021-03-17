@@ -1,5 +1,5 @@
 ID;arbitro;relator;fechaPartido;clasico;equipoLocal_ID;equipoVisitante_ID;estadio_ID;resultado_ID
 909bc89a-92cf-4a88-a9c6-a82c769e420e;pitana;latorre;2020-12-18;true;d01f454d-746a-4f7c-9c46-0a615515b15e;92f6a42c-48cc-45db-9ad1-009f61e7e179;ab2b9273-9c15-4e10-8cee-1596beb45d0b;0f320a71-35ee-4bad-8587-3910ef2e3173
 e67cf681-b4f9-49f3-8d82-98b01c90c911;elchinodelpes;vignolo;2021-10-14;false;84aae833-9bbf-4537-a2ae-16ee5fa78f37;92f6a42c-48cc-45db-9ad1-009f61e7e179;158da4d3-a15a-4362-ac05-75cc0b9aff4d;a3212276-b86c-4ded-8a75-9f2301250cc2
-f0468007-45ba-4480-a459-c75b3f5d08bf;pitana; vignolo;2021-10-14;false; 
-0b61374d-3d44-4e98-8d62-33628f9c86be
+f0468007-45ba-4480-a459-c75b3f5d08bf;pitana; vignolo;2021-10-14;false; 326f4f9e-740b-4872-ba4f-5af54d6e5ce8;b214cb59-0123-4836-ac22-f9b613e1234e;d8f0e769-9e0f-4dd2-93f7-579923f66233
+0b61374d-3d44-4e98-8d62-33628f9c86be;;pitana; vignolo;2021-10-14;false; 326f4f9e-740b-4872-ba4f-5af54d6e5ce8;92f6a42c-48cc-45db-9ad1-009f61e7e179;d8f0e769-9e0f-4dd2-93f7-579923f66233
