@@ -1,0 +1,2 @@
+ID; username; password; amigos; estatus; nombre; apellido; paisOrigen; genero;telefono; fechaNacimiento;email;comentario_ID;perfil_ID
+8c87d03e-d9fd-49c5-bf54-2fd8f70a550b;bart; "12345";250;true; bart; simpson; USA;2; 11-69008951;1999-12-18T00:00:00.000Z; [{"usuario":"bart", "dominio": "gmail.com", "full":"bart@gmail.com"}];f4a896cb-5ccd-4bb5-b8bb-ab1d55e033b3;f149d05e-d8b1-45f5-a358-52908469157f 

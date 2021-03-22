@@ -6,7 +6,8 @@ service api {
     entity equipos as projection on my.Equipos;
     entity jugadores as projection on my.Jugadores;
     entity estadios as projection on my.Estadios;
-    entity puntajes as projection on my.Puntajes;
+    entity puntajes as projection on my.Puntajes{*,
+    jugador.nombre};
     entity resultados as projection on my.Resultados;
 
     entity mas3goles as select from my.Puntajes{*,
@@ -32,6 +33,7 @@ service api {
     entity jugadormascaro as select from my.Jugadores{*,
         valor as valor,
         nombre as nombre
-    }order by valor DESC limit 1 
+    }order by valor DESC limit 1;
 
+ 
 }

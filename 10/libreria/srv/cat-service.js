@@ -1,8 +1,77 @@
 const cds = require("@sap/cds");
-const { Inventario } = cds.entities;
+
 
 module.exports = cds.service.impl(async (srv) => {
-  srv.on("modInven", async (req) => {
+
+
+  
+
+  /*============================================
+  UPDATE
+  =============================================*/
+  
+
+  srv.before('UPDATE','Books', async () => {
+    console.log('Antes de update');
+    
+  });
+
+  srv.on('UPDATE', 'Books', async () =>{
+    console.log('Updateando ');
+    
+    
+    
+  });
+
+  srv.after('UPDATE', 'Books', async () =>{
+    console.log('Despues de update ');
+    
+
+  });  
+
+  /*============================================
+  READ
+  =============================================*/
+
+  srv.before('READ','Books', async (req) => {
+    console.log('Antes de Obtener');
+    console.log(req.query);
+
+  });
+/*    srv.on('READ', 'Books', async () =>{
+    console.log('Obteniendo');
+ 
+  });  */
+
+  srv.after('READ', 'Books', async () =>{
+    console.log('Despues de obtener ');
+
+  }); 
+
+
+  /*============================================
+  DELETE
+  =============================================*/
+
+  srv.before('DELETE','Books', async (req) => {
+    console.log('Antes de Borrar');
+    console.log(req.data);
+
+  });
+   srv.on('DELETE', 'Books', async (req) =>{
+    console.log('Borrando');
+    console.log(req.data);
+  }); 
+
+  srv.after('DELETE', 'Books', async (req) =>{
+    console.log('Despues de borrar ');
+    console.log(req.data);
+  }); 
+
+
+
+
+  /*   srv.on("modInven", async (req) => {
     try {
       const { books, amount } = req.data;
       const aBooks = await cds.run(
@@ -38,4 +107,7 @@ srv.on('insertOrder', async req =>{
         return "Hubo un error a la hora de la inserccion"
     }
 
-})})
+}) */
+
+
+})
