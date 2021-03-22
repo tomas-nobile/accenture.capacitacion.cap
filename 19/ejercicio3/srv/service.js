@@ -6,18 +6,18 @@ module.exports = cds.service.impl(async (srv) => {
     const { shop_ID, product_ID, operacion } = req.data.data;
     const { venta, compra } = operacion[0];
     const selQua = await cds.run(
-      SELECT("quantity")
+      SELECT
         .from(shopProduct)
         .where({ shop_ID })
         .where({ product_ID })
     );
-    const { quantity } = selQua[0];
+    const { quantity, minimo,maximo } = selQua[0];
 
     if (shop_ID && product_ID) {
       if ((venta && compra) || (!venta && !compra)) {
         return "Los campos venta y compra son requeridos, y solo uno de ellos puede ser llenado.";
       } else if (venta) {
-        if (quantity - venta < 0) return "Stock insuficiente";
+        if (quantity - venta < minimo) return "Stock insuficiente";
 
         await cds.run(
           UPDATE(shopProduct)
@@ -28,7 +28,7 @@ module.exports = cds.service.impl(async (srv) => {
 
         return "OK";
       } else if (compra) {
-        if (quantity + compra > 1000) return "Stock maximo de 1000u";
+        if (quantity + compra > maximo) return "Stock maximo de 1000u";
 
         await cds.run(
           UPDATE(shopProduct)

@@ -56,7 +56,9 @@ entity shopProduct: cuid{
   operacion: array of {
     compra:Integer;
     venta:Integer
-  }
+  };
+  minimo:Integer;
+  maximo:Integer;
 }
 
 
