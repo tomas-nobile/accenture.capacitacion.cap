@@ -1,5 +1,5 @@
 {
-  "name": "ejercicio",
+  "name": "1ejercicio",
   "version": "1.0.0",
   "description": "A simple CAP project.",
   "repository": "<Add your repository here>",
@@ -7,8 +7,7 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^4",
-    "express": "^4",
-    "mbt": "^1.1.1"
+    "express": "^4"
   },
   "devDependencies": {
     "sqlite3": "^5.0.2"
@@ -18,16 +17,10 @@
   },
   "cds": {
     "requires": {
-      "db": {
-        "kind": "hana",
-        "model": [
-          "db",
-          "srv"
-        ]
+      "NorthWind": {
+        "kind": "odata",
+        "model": "srv/external/NorthWind"
       }
-    },
-    "odata": {
-      "version": "v4"
     }
   }
 }

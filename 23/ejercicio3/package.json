@@ -1,5 +1,5 @@
 {
-  "name": "ejercicio",
+  "name": "ejercicio3",
   "version": "1.0.0",
   "description": "A simple CAP project.",
   "repository": "<Add your repository here>",
@@ -8,6 +8,8 @@
   "dependencies": {
     "@sap/cds": "^4",
     "express": "^4",
+    "@sap/hana-client": "^2.6.61",
+    "body-parser": "^1.19.0",
     "mbt": "^1.1.1"
   },
   "devDependencies": {
