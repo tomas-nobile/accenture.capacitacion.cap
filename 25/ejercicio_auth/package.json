@@ -1,5 +1,5 @@
 {
-  "name": "ejercicioDeploy",
+  "name": "ejercicio_auth",
   "version": "1.0.0",
   "description": "A simple CAP project.",
   "repository": "<Add your repository here>",
@@ -7,10 +7,13 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^4",
-    "@sap/hana-client": "^2.6.61",
+    "@sap/cds-dk": "^3.5.1",
+    "@sap/hana-client": "^2.7.26",
+    "@sap/xssec": "^3.1.2",
     "body-parser": "^1.19.0",
     "express": "^4",
-    "mbt": "^1.1.1"
+    "mbt": "^1.1.1",
+    "passport": "^0.4.1"
   },
   "devDependencies": {
     "sqlite3": "^5.0.2"
@@ -21,7 +24,7 @@
   "cds": {
     "hana": {
       "deploy-format": "hdbtable"
-  },
+    },
     "requires": {
       "db": {
         "kind": "hana",

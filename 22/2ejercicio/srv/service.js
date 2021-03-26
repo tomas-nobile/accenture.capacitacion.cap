@@ -19,6 +19,8 @@ module.exports = cds.service.impl(async (srv) => {
         const proyecto =await cds.run(INSERT.into(Proyectos).entries(proyectoObj));
 
         
+        const arr=[];
+
         for (const tecnologia of tecnologias) {
             const {nombre, hs}= tecnologia;
 
@@ -32,10 +34,13 @@ module.exports = cds.service.impl(async (srv) => {
                 subtotal:precioxHS*hs 
                 
             }
-
-            await cds.run(INSERT.into(ProyectosTecnologias).entries(proyectoTecnologia));
+            arr.push(proyectoTecnologia)
+            
         
         }
+
+        await cds.run(INSERT.into(ProyectosTecnologias).entries(arr));
+
         const proyectoSel=await cds.run(SELECT.from(ProyectosTecnologias).where({proyecto_ID:proyecto.results[0].values[3]})) 
 
         let total=0;
