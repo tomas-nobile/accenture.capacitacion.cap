@@ -3,7 +3,7 @@ using {tienda as my} from '../db/schema';
 service api {
     entity products  as projection on my.Products{*,
     Products.orders.details.orderDate as date,
-    Products.orders.details.region as region
+    Products.orders.details.orderDate as region
 
     };
     entity orders as projection on my.Orders;
