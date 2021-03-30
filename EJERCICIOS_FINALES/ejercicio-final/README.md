@@ -4,6 +4,6 @@ Ejercicio donde se puede agregar o quitar mercaderia, en caso de quitar el mismo
 
 # Link de la demostracion
 
-Justo cuando lo estaba mostrando me apagaron los servidores, pero algo se ve
+Justo cuando lo estaba mostrando apagaron los servidores, pero algo se puede ver
 
 https://drive.google.com/file/d/1NVWcfBPpeeXwAUoem255bCRdtJyEdQam/view?usp=sharing
