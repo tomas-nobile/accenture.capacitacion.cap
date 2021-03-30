@@ -2,6 +2,25 @@ const cds = require("@sap/cds");
 const { Products, Orders } = cds.entities;
 
 module.exports = cds.service.impl(async (srv) => {
+  
+/*   srv.once("modifyQuantity", async (req) => {
+
+    const selPro = await cds.run(
+      SELECT.from(Products).where({ ID: product_ID })
+    );
+    
+    await cds.run(
+      UPDATE(Products)
+
+        })
+    );
+
+  })
+   */
+  
+  
+  
+  
   srv.on("modifyQuantity", async (req) => {
     const { product_ID, quantity, details_region } = req.data.data;
     const selPro = await cds.run(
@@ -9,6 +28,7 @@ module.exports = cds.service.impl(async (srv) => {
     );
     let { stock, stockOrder } = selPro[0];
 
+    
     if (!product_ID || !quantity || !details_region)
       return "Los campos son obligatorios";
 
@@ -36,3 +56,4 @@ module.exports = cds.service.impl(async (srv) => {
     );
   });
 });
+

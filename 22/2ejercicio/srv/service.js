@@ -1,74 +1,92 @@
 const cds = require("@sap/cds");
-const { Proyectos,Tecnologias,Clientes,ProyectosTecnologias } = cds.entities;
-
+const {
+  Proyectos,
+  Tecnologias,
+  Clientes,
+  ProyectosTecnologias,
+} = cds.entities;
 
 module.exports = cds.service.impl(async (srv) => {
+  srv.on("cotizacion", async (req) => {
+    const {
+      nombreCliente,
+      nombreProyecto,
+      tecnologias,
+      dificultad,
+    } = req.data.form;
 
-    srv.on('cotizacion', async (req)=>{
+    const cliente = await cds.run(
+      INSERT.into(Clientes).entries({ nombre: nombreCliente })
+    );
 
-        const {nombreCliente,nombreProyecto, tecnologias,dificultad} = req.data.form;
+    const proyectoObj = {
+      cliente_ID: cliente.results[0].values.pop(),
+      nombre: nombreProyecto,
+      dificultad,
+    };
 
-        const cliente =await cds.run(INSERT.into(Clientes).entries({nombre:nombreCliente}));
+    const proyecto = await cds.run(
+      INSERT.into(Proyectos).entries(proyectoObj)
+    );
 
-        const proyectoObj={
-            cliente_ID:cliente.results[0].values.pop(),
-            nombre:nombreProyecto,
-            dificultad
-        }
+    const arr = [];
 
-        const proyecto =await cds.run(INSERT.into(Proyectos).entries(proyectoObj));
+    for (const tecnologia of tecnologias) {
+      const { nombre, hs } = tecnologia;
 
-        
-        const arr=[];
+      const data = await cds.run(
+        SELECT.from(Tecnologias).where({ nombre })
+      );
+      const { ID, precioxHS } = data[0];
 
-        for (const tecnologia of tecnologias) {
-            const {nombre, hs}= tecnologia;
+      const proyectoTecnologia = {
+        proyecto_ID: proyecto.results[0].values[3],
+        tecnologia_ID: ID,
+        hs,
+        subtotal: precioxHS * hs,
+      };
+      arr.push(proyectoTecnologia);
+    }
 
-            const data= await cds.run(SELECT.from(Tecnologias).where({nombre}))
-            const {ID, precioxHS}= data[0]
+    await cds.run(INSERT.into(ProyectosTecnologias).entries(arr));
 
-            const proyectoTecnologia={
-                proyecto_ID:proyecto.results[0].values[3],
-                tecnologia_ID:ID,
-                hs,
-                subtotal:precioxHS*hs 
-                
-            }
-            arr.push(proyectoTecnologia)
-            
-        
-        }
+    const proyectoSel = await cds.run(
+      SELECT.from(ProyectosTecnologias).where({
+        proyecto_ID: proyecto.results[0].values[3],
+      })
+    );
 
-        await cds.run(INSERT.into(ProyectosTecnologias).entries(arr));
+    let total = 0;
+    let horas = 0;
 
-        const proyectoSel=await cds.run(SELECT.from(ProyectosTecnologias).where({proyecto_ID:proyecto.results[0].values[3]})) 
+    for (const e of proyectoSel) {
+      console.log(e);
+      horas += e.hs;
+      total += e.subtotal;
+    }
 
-        let total=0;
-        let horas=0;
+    if (dificultad == 2) {
+      total *= 1.5;
+      horas *= 1.5;
+    } else if (dificultad == 3) {
+      total *= 2;
+      horas *= 2;
+    }
 
-        for (const e of proyectoSel) {
-            console.log(e);
-            horas+=e.hs;
-            total+=e.subtotal;
-        }
+    let dias = Math.floor(
+      (horas / 8) % 0 == 0 ? horas / 8 : horas / 8 + 1
+    );
 
-        if(dificultad==2){
-            total*=1.5;
-            horas*=1.5;
-        }
-        else if(dificultad==3){
-            total*=2;
-            horas*=2;
-        }
+    console.log(dias);
 
-        let dias=Math.floor((horas/8)%0==0?horas/8:(horas/8)+1)
-
-        console.log(dias);
-
-
-        await cds.run(UPDATE(Proyectos).set({total,totalHoras:Math.round(horas),diasHabiles:dias}).where({ID:proyecto.results[0].values[3]}))
-        
-
-    
-    })
-})
+    await cds.run(
+      UPDATE(Proyectos)
+        .set({
+          total,
+          totalHoras: Math.round(horas),
+          diasHabiles: dias,
+        })
+        .where({ ID: proyecto.results[0].values[3] })
+    );
+  });
+});
